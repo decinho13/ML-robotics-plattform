@@ -1,7 +1,7 @@
 version: '3'
 services:
   jupyter:
-    image: decinho13/docker-jupyter-ros-tf
+    image: decinho13/base-notebook:ros-tf
     ports:
       - "8888:8888"
     volumes:
@@ -20,7 +20,7 @@ services:
       - jupyter_data:/root
 
   vrep:
-    image: decinho13/docker-vrep-novnc
+    image: decinho13/docker-vrep-novnc:1.3.0
     ports:
       - "9000:9000"
       - "5643:5643"
@@ -31,7 +31,7 @@ services:
       -jupyter_data:/root
 
   blender:
-    image: decinho13/blender-docker
+    image: decinho13/blender-docker:1.0.0
     ports:
       - "8008:8008"
     volumes:
