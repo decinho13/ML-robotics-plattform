@@ -14,7 +14,6 @@ services:
       - "7000:7000"
       - "8181:8181"
     environment:
-      DISPLAY=$DISPLAY
       NVIDIA_VISIBLE_DEVICES=0
     volumes:
       - jupyter_data:/root
@@ -26,9 +25,8 @@ services:
       - "5643:5643"
     environment:
       NVIDIA_VISIBLE_DEVICES=0
-      DISPLAY=$DISPLAY
     volumes:
-      -jupyter_data:/root
+      - jupyter_data:/root
 
   blender:
     image: decinho13/blender-docker:1.0.0
@@ -75,7 +73,7 @@ services:
     ports:
       - "8009:80"
     volumes:
-      html:/usr/share/nginx/html
+      - html:/usr/share/nginx/html
       
 volumes:
   data:
