@@ -14,7 +14,8 @@ services:
       - "7000:7000"
       - "8181:8181"
     environment:
-      NVIDIA_VISIBLE_DEVICES=0
+      - NVIDIA_VISIBLE_DEVICES=0
+      - DISPLAY=$DISPLAY
     volumes:
       - jupyter_data:/root
 
@@ -24,7 +25,8 @@ services:
       - "9000:9000"
       - "5643:5643"
     environment:
-      NVIDIA_VISIBLE_DEVICES=0
+      - NVIDIA_VISIBLE_DEVICES=0
+      - DISPLAY=$DISPLAY
     volumes:
       - jupyter_data:/root
 
