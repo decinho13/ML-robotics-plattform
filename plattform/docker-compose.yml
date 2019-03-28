@@ -4,6 +4,7 @@ services:
     image: decinho13/base-notebook:ros-tf
     ports:
       - "8888:8888"
+    user: root
     volumes:
       - jupyter_data:/home
 
@@ -15,6 +16,7 @@ services:
       - "8181:8181"
     environment:
       - NVIDIA_VISIBLE_DEVICES=0
+    user: root
     volumes:
       - jupyter_data:/root
 
