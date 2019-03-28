@@ -8,30 +8,26 @@ services:
       - jupyter_data:/home
 
   ros-kinetic:
-    image: decinho13/ros-final
+    image: decinho13/ros-final:cuda_10.0
     ports:
       - "8080:8080"
       - "7000:7000"
       - "8181:8181"
     environment:
       - NVIDIA_VISIBLE_DEVICES=0
-      - DISPLAY=$DISPLAY
     volumes:
       - jupyter_data:/root
 
   vrep:
-    image: decinho13/docker-vrep-novnc:1.3.0
+    image: decinho13/docker-vrep-novnc:1.3.1
     ports:
       - "9000:9000"
       - "5643:5643"
-    environment:
-      - NVIDIA_VISIBLE_DEVICES=0
-      - DISPLAY=$DISPLAY
     volumes:
       - jupyter_data:/root
 
   blender:
-    image: decinho13/blender-docker:1.0.0
+    image: decinho13/blender-docker:1.1.0
     ports:
       - "8008:8008"
     volumes:
