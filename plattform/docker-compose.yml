@@ -5,6 +5,8 @@ services:
     ports:
       - "8888:8888"
     user: jovyan
+    environment:
+      - PASSWORD=root
     volumes:
       - jupyter_data:/home/workspace
 
