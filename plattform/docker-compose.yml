@@ -81,9 +81,6 @@ volumes:
   data:
   pgdata:
   jupyter_data:
-    driver: local-persist
-    driver_opts:
-      mountpoint: ~/jupyter-data
   html:
     driver: local-persist
     driver_opts:
