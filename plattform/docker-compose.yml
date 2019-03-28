@@ -4,7 +4,7 @@ services:
     image: decinho13/base-notebook:ros-tf
     ports:
       - "8888:8888"
-    user: root
+    user: jovyan
     volumes:
       - jupyter_data:/home
 
