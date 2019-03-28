@@ -82,3 +82,6 @@ volumes:
   pgdata:
   jupyter_data:
   html:
+    driver: local-persist
+    driver_opts:
+      mountpoint: ~/Elements
