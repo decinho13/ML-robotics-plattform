@@ -75,13 +75,9 @@ services:
     ports:
       - "8009:80"
     volumes:
-      - html:/usr/share/nginx/html
+      - ~/Elements:/usr/share/nginx/html
       
 volumes:
   data:
   pgdata:
   jupyter_data:
-  html:
-    driver: local-persist
-    driver_opts:
-      mountpoint: ~/Elements
