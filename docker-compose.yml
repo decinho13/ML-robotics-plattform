@@ -1,39 +1,44 @@
-#gitlab
 version: '3'
 services:
-    gitlab:
-        image: gitlab/gitlab-ce:latest
-        environment:
-          GITLAB_OMNIBUS_CONFIG: |
-            postgresql['enable'] = false
-            gitlab_rails['db_host'] = 'postgresql'
-            gitlab_rails['db_port'] = '5432'
-            gitlab_rails['db_username'] = 'gitlab'
-            gitlab_rails['db_password'] = 'ci5ahLielieY'
-            gitlab_rails['db_database'] = 'gitlab_prod'
-            gitlab_rails['db_adapter'] = 'postgresql'
-            gitlab_rails['db_encoding'] = 'utf8'
-            redis['enable'] = false
-            gitlab_rails['redis_host'] = 'redis'
-            gitlab_rails['redis_port'] = '6379'
-        ports:
-          - "3333:80"
-        restart: always
-        volumes:
-          - data:/var/opt/gitlab
+  gitlab:
+    
+    image: gitlab/gitlab-ce:latest
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |   
+        postgresql['enable'] = false
+        gitlab_rails['db_host'] = 'postgresql'
+        gitlab_rails['db_port'] = '5432'
+        gitlab_rails['db_username'] = 'gitlab'
+        gitlab_rails['db_password'] = 'ci5ahLielieY'
+        gitlab_rails['db_database'] = 'gitlab_prod'
+        gitlab_rails['db_adapter'] = 'postgresql'
+        gitlab_rails['db_encoding'] = 'utf8'
+        redis['enable'] = false
+        gitlab_rails['redis_host'] = 'redis'
+        gitlab_rails['redis_port'] = '6379'
+    ports:
+      - "2222:22"
+      - "3333:80"
+    restart: always
+    volumes:
+      - config:/etc/gitlab
+      - logs:/var/log/gitlab
+      - data:/var/opt/gitlab
+  redis:
+    image: redis:4
+  postgresql:
+    image: postgres:9
+    environment:
+      - POSTGRES_USER=gitlab
+      - POSTGRES_PASSWORD=ci5ahLielieY
+      - POSTGRES_DB=gitlab_prod
+    volumes:
+      - pgdata:/var/lib/postgresql
 
-    redis:
-        image: redis:4
 
-    postgresql:
-        image: postgres:9
-        environment:
-          - POSTGRES_USER=gitlab
-          - POSTGRES_PASSWORD=ci5ahLielieY
-          - POSTGRES_DB=gitlab_prod
-        volumes:
-          - pgdata:/var/lib/postgresql
+
 volumes:
+  config:
+  logs:
   data:
   pgdata:
-       
