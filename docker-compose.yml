@@ -17,7 +17,7 @@ services:
             gitlab_rails['redis_host'] = 'redis'
             gitlab_rails['redis_port'] = '6379'
         ports:
-          - "2222:80"
+          - "3333:80"
         restart: always
         volumes:
           - data:/var/opt/gitlab
