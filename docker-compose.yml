@@ -24,7 +24,17 @@ services:
       - config:/etc/gitlab
       - logs:/var/log/gitlab
       - data:/var/opt/gitlab
- 
+  redis:
+     image: redis:4
+
+  postgresql:
+     image: postgres:9
+     environment:
+      - POSTGRES_USER=gitlab
+      - POSTGRES_PASSWORD=ci5ahLielieY
+      - POSTGRES_DB=gitlab_prod
+     volumes:
+      - pgdata:/var/lib/postgresql
 
 
 volumes:
