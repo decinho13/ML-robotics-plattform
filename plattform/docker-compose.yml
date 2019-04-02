@@ -206,13 +206,10 @@ services:
       - 80:80
       - 443:443
     volumes:
-<<<<<<< HEAD
       - ~/web/Elements:/usr/share/nginx/html
-=======
       - ./nginx.conf:/etc/nginx/nginx.conf
     networks:
       - ml-network
->>>>>>> 26e27ffd1e3b7b25b6acd480afe4137e0fe7728a
       
 volumes:
   data:
