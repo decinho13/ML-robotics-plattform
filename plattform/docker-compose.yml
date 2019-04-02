@@ -45,7 +45,7 @@ services:
     networks:
       - ml-network
 
- redis:
+  redis:
     restart: always
     image: sameersbn/redis:4.0.9-1
     command:
