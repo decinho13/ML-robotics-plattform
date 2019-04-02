@@ -209,7 +209,6 @@ services:
 <<<<<<< HEAD
       - ~/web/Elements:/usr/share/nginx/html
 =======
-      - ~/Elements:/usr/share/nginx/html
       - ./nginx.conf:/etc/nginx/nginx.conf
     networks:
       - ml-network
