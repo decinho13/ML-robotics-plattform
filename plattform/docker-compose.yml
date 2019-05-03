@@ -14,8 +14,6 @@ services:
       - jupyter_data:/opt/app-root/bin
     networks:
       - ml-network
-    command:
-      - roscore
       
   jupyter:
     image: decinho13/ros-notebook:ml-addon
