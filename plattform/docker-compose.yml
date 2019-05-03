@@ -1,45 +1,56 @@
 version: '3'
 services:
-  jupyter:
-    image: decinho13/base-notebook:ros-tf
-    ports:
-      - "8888:8888"
-    user: jovyan
-    environment:
-      - PASSWORD=root
-    volumes:
-      - jupyter_data:/home/workspace
-    networks:
-      - ml-network
-
   ros-kinetic:
-    image: decinho13/ros-final:cuda_10.0
+    image: decinho13/ros-final:v3
+    container_name: master
     ports:
       - "8080:8080"
       - "7000:7000"
       - "8181:8181"
+      - "11311:11311"
     environment:
       - NVIDIA_VISIBLE_DEVICES=0
-    user: root
     volumes:
-      - jupyter_data:/root/workspace
+      - jupyter_data: /opt/app-root/bin
     networks:
       - ml-network
-
+    command:
+      - roscore
+      
+  jupyter:
+    image: decinho13/ros-notebook:ml-addon
+    ports:
+      - "8888:8888"
+      - "8889:8889"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=0
+      - "ROS_MASTER_URI=http://master:11311"
+      - "ROS_HOSTNAME=notebook"
+    volumes:
+      - jupyter_data: /opt/app-root/bin
+    networks:
+      - ml-network
+      
   vrep:
-    image: decinho13/docker-vrep-novnc:1.3.1
+    image: decinho13/docker-vrep-novnc:1.4.0
     ports:
       - "9000:9000"
       - "5643:5643"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=0
+      - "ROS_MASTER_URI=http://master:11311"
+      - "ROS_HOSTNAME=vrep"
     volumes:
-      - jupyter_data:/root
+      - jupyter_data:/opt/app-root/bin
     networks:
       - ml-network
 
   blender:
-    image: decinho13/blender-docker:1.1.0
+    image: decinho13/blender-docker:1.3.0
     ports:
       - "8008:8008"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=0
     volumes:
       - jupyter_data:/root
     networks:
