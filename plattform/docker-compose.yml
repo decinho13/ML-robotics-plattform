@@ -14,7 +14,7 @@ services:
       - jupyter_data:/opt/app-root/bin
     networks:
       - ml-network
-    command: pwd && bash ./bin/entrypoint.sh
+    command: cd /opt/app-root/bin && bash entrypoint.sh
       
   jupyter:
     image: decinho13/ros-notebook:ml-addon
