@@ -18,8 +18,7 @@ services:
   jupyter:
     image: decinho13/ros-notebook:ml-addon
     ports:
-      - "8888:8888"
-      - "8889:8889"
+      - "8889:8888"
     environment:
       - NVIDIA_VISIBLE_DEVICES=0
       - "ROS_MASTER_URI=http://master:11311"
