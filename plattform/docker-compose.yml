@@ -29,7 +29,7 @@ services:
       - ml-network
       
   vrep:
-    image: decinho13/docker-vrep-novnc:1.4.0
+    image: decinho13/docker-vrep-novnc:compose
     ports:
       - "9000:9000"
       - "5643:5643"
