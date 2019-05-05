@@ -1,7 +1,7 @@
 version: '3'
 services:
   ros-kinetic:
-    image: decinho13/ros-final:v3_compose
+    image: decinho13/ros-final:v4
     container_name: master
     ports:
       - "8080:8080"
@@ -16,7 +16,7 @@ services:
       - ml-network
       
   jupyter:
-    image: decinho13/ros-notebook:ml-addon
+    image: decinho13/ros-notebook:gpu
     ports:
       - "8889:8888"
     environment:
