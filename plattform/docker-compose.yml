@@ -215,7 +215,6 @@ services:
       - 30443:443
     volumes:
       - ~/web/Elements:/usr/share/nginx/html
-      - ./nginx.conf:/etc/nginx/nginx.conf
     networks:
       - ml-network
       
