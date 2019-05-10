@@ -51,9 +51,7 @@ services:
     environment:
       - NVIDIA_VISIBLE_DEVICES=0
     volumes:
-    - type: volume
-      source: jupyter_data
-      target: /opt/app-root/bin/share
+    - jupyter_data:/opt/app-root/bin/share:Z
     networks:
       - ml-network
 
