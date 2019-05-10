@@ -221,6 +221,9 @@ services:
       - ml-network
       
 volumes:
+  blender_data:
+  jupyter_1:
+  vrep_data:
   data:
   pgdata:
   redata:
