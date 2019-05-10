@@ -11,7 +11,7 @@ services:
     environment:
       - NVIDIA_VISIBLE_DEVICES=0
     volumes:
-      - jupyter_data:/opt/app-root/bin/share
+      - jupyter_data:/opt/app-root/bin/share:z
     networks:
       - ml-network
       
@@ -24,7 +24,7 @@ services:
       - "ROS_MASTER_URI=http://master:11311"
       - "ROS_HOSTNAME=master"
     volumes:
-      - jupyter_data:/opt/app-root/bin/share
+      - jupyter_data:/opt/app-root/bin/share:z
     networks:
       - ml-network
       
@@ -38,7 +38,7 @@ services:
       - "ROS_MASTER_URI=http://master:11311"
       - "ROS_HOSTNAME=vrep"
     volumes:
-      - jupyter_data:/opt/app-root/bin/share
+      - jupyter_data:/opt/app-root/bin/share:z
     networks:
       - ml-network
 
@@ -49,7 +49,7 @@ services:
     environment:
       - NVIDIA_VISIBLE_DEVICES=0
     volumes:
-      - jupyter_data:/opt/app-root/bin/share
+      - jupyter_data:/opt/app-root/bin/share:z
     networks:
       - ml-network
 
