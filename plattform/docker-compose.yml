@@ -24,7 +24,7 @@ services:
       - "ROS_MASTER_URI=http://master:11311"
       - "ROS_HOSTNAME=master"
     volumes-from:
-      - ros-kinetic
+      - jupyter_data:/opt/app-root/bin/share
     networks:
       - ml-network
       
@@ -219,10 +219,9 @@ services:
       - ml-network
       
 volumes:
-  data:
   pgdata:
   redata:
-  jupyter_data:
+  jupyter_data: {}
 
 networks:
   ml-network:
