@@ -50,6 +50,10 @@ services:
       - "8008:8008"
     environment:
       - NVIDIA_VISIBLE_DEVICES=0
+    volumes:
+    - type: volume
+      source: jupyter_data
+      target: /opt/app-root/bin/share
     networks:
       - ml-network
 
