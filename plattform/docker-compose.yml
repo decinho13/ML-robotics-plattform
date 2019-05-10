@@ -219,6 +219,7 @@ services:
       - ml-network
       
 volumes:
+  data:
   pgdata:
   redata:
   jupyter_data: {}
