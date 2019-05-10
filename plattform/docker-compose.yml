@@ -40,7 +40,7 @@ services:
       - "ROS_MASTER_URI=http://master:11311"
       - "ROS_HOSTNAME=vrep"
     volumes:
-      - vrep_data:/opt/app-root/bin/share/1:Z
+      - vrep_data:/opt/app-root/bin/share:Z
     networks:
       - ml-network
 
@@ -51,7 +51,7 @@ services:
     environment:
       - NVIDIA_VISIBLE_DEVICES=0
     volumes:
-      - blender_data:/opt/app-root/bin/share/1:Z
+      - blender_data:/opt/app-root/bin/share:Z
     networks:
       - ml-network
 
