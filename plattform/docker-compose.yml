@@ -1,19 +1,6 @@
 version: '3'
 services:
-  ros-kinetic:
-    image: decinho13/ros-final:v4
-    container_name: master
-    ports:
-      - "8080:8080"
-      - "7000:7000"
-      - "8181:8181"
-      - "11311:11311"
-    environment:
-      - NVIDIA_VISIBLE_DEVICES=0
-    volumes:
-      - jupyter_data:/opt/app-root/bin/share:Z
-    networks:
-      - ml-network
+  
       
   jupyter:
     image: decinho13/ros-notebook:cuda
@@ -27,6 +14,21 @@ services:
       - jupyter_data:/opt/app-root/bin/share:Z
     networks:
       - ml-network
+      
+  ros-kinetic:
+    image: decinho13/ros-final:v4
+    container_name: master
+    ports:
+      - "8080:8080"
+      - "7000:7000"
+      - "8181:8181"
+      - "11311:11311"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=0
+    volumes:
+      - jupyter_data:/opt/app-root/bin/share:Z
+    networks:
+      - ml-network    
       
   vrep:
     image: decinho13/docker-vrep-novnc:compose
