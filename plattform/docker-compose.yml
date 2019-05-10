@@ -23,8 +23,8 @@ services:
       - NVIDIA_VISIBLE_DEVICES=0
       - "ROS_MASTER_URI=http://master:11311"
       - "ROS_HOSTNAME=master"
-    volumes:
-      - jupyter_data:/opt/app-root/bin/share
+    volumes-from:
+      - ros-kinetic
     networks:
       - ml-network
       
