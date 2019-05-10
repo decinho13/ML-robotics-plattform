@@ -3,7 +3,7 @@ services:
   
       
   jupyter:
-    image: decinho13/ros-notebook:gpu
+    image: decinho13/ros-notebook:cuda
     ports:
       - "8889:8888"
     environment:
