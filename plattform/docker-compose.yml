@@ -26,7 +26,7 @@ services:
     environment:
       - NVIDIA_VISIBLE_DEVICES=0  
     volumes:
-      - jupyter_data:/opt/app-root/bin/share:Z
+      - master_data:/opt/app-root/bin/share:Z
     networks:
       - ml-network    
       
@@ -227,7 +227,7 @@ volumes:
   data:
   pgdata:
   redata:
-  jupyter_data: {}
+  master_data: {}
 
 networks:
   ml-network:
