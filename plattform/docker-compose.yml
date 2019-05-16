@@ -4,6 +4,7 @@ services:
       
   jupyter:
     image: decinho13/ros-notebook:cuda
+    runtime: nvidia
     ports:
       - "8889:8888"
     environment:
