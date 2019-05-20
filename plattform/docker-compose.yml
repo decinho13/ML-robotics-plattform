@@ -27,7 +27,7 @@ services:
     environment:
       - NVIDIA_VISIBLE_DEVICES=0  
       - "ROS_MASTER_URI=http://master:11311"
-      - "ROS_HOSTNAME=jupyter"
+      - "ROS_HOSTNAME=master"
       - "ROS_IP=master"
     volumes:
       - master_data:/opt/app-root/bin/share:Z
