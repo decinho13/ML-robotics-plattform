@@ -9,7 +9,7 @@ services:
     environment:
       - NVIDIA_VISIBLE_DEVICES=0
       - "ROS_MASTER_URI=http://master:11311"
-      - "ROS_HOSTNAME=master"
+      - "ROS_HOSTNAME=jupyter"
       - "ROS_IP=plattform_jupyter_1"
     volumes:
       - jupyter_1:/opt/app-root/bin/share:Z
@@ -26,6 +26,9 @@ services:
       - "11311:11311"
     environment:
       - NVIDIA_VISIBLE_DEVICES=0  
+      - "ROS_MASTER_URI=http://master:11311"
+      - "ROS_HOSTNAME=jupyter"
+      - "ROS_IP=master"
     volumes:
       - master_data:/opt/app-root/bin/share:Z
     networks:
@@ -39,7 +42,7 @@ services:
     environment:
       - NVIDIA_VISIBLE_DEVICES=0
       - "ROS_MASTER_URI=http://master:11311"
-      - "ROS_HOSTNAME=master"
+      - "ROS_HOSTNAME=vrep"
     volumes:
       - vrep_data:/opt/app-root/bin/share:Z
     networks:
